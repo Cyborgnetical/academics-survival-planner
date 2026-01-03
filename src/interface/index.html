@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Survival Planner</title>
+</head>
+<body>
+    
+    <div id="classes">
+        <li>Class 1 - 95% A</li>
+        <li>Class 2 - 85% B</li>
+        <li>Class 3 - 79% C+</li>
+        <li>Class 4 - 95% A</li>
+        <li>Class 5 - 90% A-</li>
+        <li>Class 6 - 85% B</li>
+        <li>Class 7 - 60% D-</li>
+    </div>
+
+    <form>
+        <h2>Add new class</h2>
+        <label for="class">Class Name:</label><br>
+        <input type="text" name="class"><br>
+        <label for="class-grade">Grade</label><br>
+        <input type="number" name="class-grade">
+        <button>Submit</button>
+    </form>
+    
+    <script>
+        async function joijroiejge(){
+            // raaaaaaaaaaaa so many hoops
+            let dummydata = await fetch("/classes")
+        let blob = await dummydata.blob()
+        let data = await blob.text()
+        
+        console.log(data)
+        }
+        joijroiejge();
+    </script>
+</body>
+</html>
