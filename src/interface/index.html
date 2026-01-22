@@ -6,15 +6,12 @@
     <title>Academic Survival Planner</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Cyborgnetical's School Nightmare Planner | C.S.N.P. ✩₊˚.⋆☾⋆⁺₊✧</h1>
+    </header>
     <div id="classes">
-        <li>Class 1 - 95% A</li>
-        <li>Class 2 - 85% B</li>
-        <li>Class 3 - 79% C+</li>
-        <li>Class 4 - 95% A</li>
-        <li>Class 5 - 90% A-</li>
-        <li>Class 6 - 85% B</li>
-        <li>Class 7 - 60% D-</li>
+        <ul id="classListing">
+        </ul>
     </div>
 
     <form>
@@ -27,15 +24,38 @@
     </form>
     
     <script>
-        async function joijroiejge(){
-            // raaaaaaaaaaaa so many hoops
-            let dummydata = await fetch("/classes")
-        let blob = await dummydata.blob()
-        let data = await blob.text()
-        
-        console.log("data from /classes: ",data)
+        async function sendData(route,data){
+            fetch(route, {
+                method:"POST",
+                headers:{
+                    'Content-Type': "application/json; charset=utf-8"
+                },
+                body:JSON.stringify(data)
+            })
         }
-        joijroiejge();
+        async function getData(route){
+            let rawData = await fetch(route)
+            let data = await rawData.json()
+            return data;
+        }
+        // send data
+        
+        
+        // I cant be bothered with async mess so just make a main function that is async
+        async function main(){
+            let classAssingments = await getData("/classes/Math/assingments")
+            // fetch classes data
+            let classes = await getData("/classes/getAllClasses")
+            for(let i in classes){
+                let classInfoBox = document.createElement("li")
+                classInfoBox.innerText = `${i} - ${classes[i].grade}%`
+
+                let classListing = document.getElementById("classListing")
+                classListing.appendChild(classInfoBox)
+            }
+
+        }
+        main();
     </script>
 </body>
 </html>

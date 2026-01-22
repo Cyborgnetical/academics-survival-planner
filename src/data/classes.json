@@ -1,9 +1,1 @@
-{
-    "Math":{},
-    "English":{},
-    "History":{},
-    "Science":{},
-    "Art":{},
-    "Computer Science":{},
-    "Robotics":{}
-}
+{"World History":{"grade":85,"period":4,"homeworkCategories":{"default":100},"homework":[]},"Math":{"grade":90,"period":1,"homeworkCategories":{"default":100},"homework":[]},"Science":{"grade":80,"period":2,"homeworkCategories":{"default":100},"homework":[]}}
